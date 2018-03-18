@@ -1,0 +1,22 @@
+/*  Adaptive sprites mixin  */
+
+@mixin spritesPercentage($spriteName, $totalSheetWidth: 0, $totalSheetHeight: 0, $spriteWidth: 0, $spriteHeight: 0, $spritePositionX: 0, $spritePositionY: 0) {
+    width: 100%;
+    max-width: $spriteWidth + px;
+    height: $spriteHeight + px;
+
+    background: url("../images/sprites/" + $spriteName + ".png") no-repeat center;
+    background-position-x: percentage($spritePositionX / ($totalSheetWidth - $spriteWidth));
+    background-position-y: percentage($spritePositionY / ($totalSheetHeight - $spriteHeight));
+    background-size: percentage($totalSheetWidth / $spriteWidth), percentage($totalSheetHeight / $spriteHeight);
+  /*}*/
+}
+
+@mixin gridRow($rowNumber: 3, $padding: 10px) {
+  display: block;
+  width: percentage(1 / $rowNumber);
+  padding-left: $padding;
+  padding-right: $padding;
+}
+
+
